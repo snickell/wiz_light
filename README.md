@@ -92,13 +92,15 @@ https://github.com/home-assistant/core/pull/44779
 ## Install for testing
 
 1. Loggon to your HA or HASS with SSH
-2. Got to the HA `custom_components` directory within the HA installation path (if this is not available - create this directory).
-3. Run `cd custom_components`
-4. Run `git clone https://github.com/sbidy/wiz_light` within the `custom_components` directory
-5. Run `mv wiz_light/custom_components/wiz_light/* wiz_light/` to move the files in the correct diretory
-6. Restart your HA/HASS service in the UI with `<your-URL>/config/server_control`
-7. Add the bulbs to your `configuration.yaml` - You can not add the bulbs in the HA UI!! (configFlow is missing)
+2. Find the custom_components dir, create if needed, and `cd custom_components`
+3. From the `custom_components` directory: run `git clone https://github.com/sbidy/wiz_light src/wiz_light && ln -sf src/wiz_light/custom_components/wiz_light .`
+4. Restart your HA/HASS service in the UI with `<your-URL>/config/server_control`
+5. Use the HASS UI to add the devices/integration, or add them manually by editing `configuration.yaml` (see below)
 
+## Update to the latest wiz_light from github
+1. Loggon to your HA or HASS with SSH
+2. From the `custom_components` directory: run `cd src/wiz_light && git pull`
+  
 Questions? Check out the github project [pywizlight](https://github.com/sbidy/pywizlight)
 
 ## Enable Debug
